@@ -21,7 +21,7 @@ public class IntegrationTest {
 	private static WatchDir watchDir;
 	private static Thread watchThread;
 	
-	@BeforeClass
+	//@BeforeClass
 	public static void testSetup() throws IOException {
 		fileSyncManager = new GoogleDriveFileSyncManager(
         		GoogleDriveServiceProvider.get().getGoogleDriveClient());
@@ -32,13 +32,13 @@ public class IntegrationTest {
 		watchThread.start();
 	}
 	
-	@AfterClass
+	//@AfterClass
 	public static void testBreakdown() {
 		//Not safe, but test is finishing anyway
 		watchThread.interrupt();
 	}
 	
-	@Test
+	//@Test
 	public void TestIntegration(){
 		try {
 	        //Create file in Watch Directory and verify file is transferred to Google Drive
